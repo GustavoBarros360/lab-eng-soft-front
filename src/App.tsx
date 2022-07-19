@@ -7,7 +7,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Projeto Laboratório de Engenharia de Software - Loja 1,99</h1>
         <Routes />
       </div>
     </Router>
