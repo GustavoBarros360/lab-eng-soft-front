@@ -16,6 +16,7 @@ export const Home: React.FC = () => {
           <Link to="/create-client">Cadastrar Cliente</Link>
           <Link to="/list-sellers">Listar Vendedores</Link>
           <Link to="/list-sell">Listar Vendas</Link>
+          <Link to="/list-products">Listar Produtos</Link>
         </Hbox.Item>
       </Hbox>
     </Container>

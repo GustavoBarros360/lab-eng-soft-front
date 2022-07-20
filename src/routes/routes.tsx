@@ -7,6 +7,7 @@ import { Home } from "../pages/home/home.page";
 import { SellForm } from "../pages/sell/sell.form";
 import { ListSellers } from "../pages/seller/list-sellers";
 import { ListSell } from "../pages/sell/list-sell";
+import { ListProducts } from "../pages/product/list-products";
 
 export const Routes: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ export const Routes: React.FC = () => {
       <Route element={<SellForm />} path="/create-sell" />
       <Route element={<ListSellers />} path="/list-sellers" />
       <Route element={<ListSell />} path="/list-sell" />
+      <Route element={<ListProducts />} path="/list-products" />
     </ReactRoutes>
   );
 };
