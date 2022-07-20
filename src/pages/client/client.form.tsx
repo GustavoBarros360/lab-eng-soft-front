@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 import { TextField, FormControl, FormLabel, Box, Button } from "@mui/material";
-
-import { api } from "../api";
+import { Link } from "react-router-dom";
+import { api } from "../../api";
 
 export const ClientForm: React.FC = () => {
   const [name, setName] = useState<string>();
@@ -84,6 +84,7 @@ export const ClientForm: React.FC = () => {
       </Box>
       <Box alignItems="flex-start">
         <Button onClick={handleCreateClient}>Cadastrar</Button>
+        <Link to="/">Voltar</Link>
       </Box>
     </FormControl>
   );

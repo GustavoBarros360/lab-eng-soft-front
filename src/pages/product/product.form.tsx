@@ -9,8 +9,8 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-
-import { api } from "../api";
+import { api } from "../../api";
+import { Link } from "react-router-dom";
 
 interface Categories {
   id_categoria: string;
@@ -51,7 +51,10 @@ export const ProductForm: React.FC = () => {
       .post("/create-category", {
         name: categoryName,
       })
-      .then((result) => console.log(result));
+      .then((result) => {
+        window.location.reload();
+        console.log(result);
+      });
   };
 
   useEffect(() => {
@@ -106,6 +109,7 @@ export const ProductForm: React.FC = () => {
       </Box>
       <Box>
         <Button onClick={handleCreateProduct}>Cadastrar Produto</Button>
+        <Link to="/">Voltar</Link>
       </Box>
     </FormControl>
   );

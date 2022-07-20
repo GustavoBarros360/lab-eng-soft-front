@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 import { TextField, FormControl, FormLabel, Box, Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
-import { api } from "../api";
+import { api } from "../../api";
 
 export const SellerForm: React.FC = () => {
   const [name, setName] = useState<string>();
@@ -54,6 +55,7 @@ export const SellerForm: React.FC = () => {
       </Box>
       <Box>
         <Button onClick={handleCreateSeller}>Cadastrar</Button>
+        <Link to="/">Voltar</Link>
       </Box>
     </FormControl>
   );
