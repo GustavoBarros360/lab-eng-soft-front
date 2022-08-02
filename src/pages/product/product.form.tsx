@@ -87,6 +87,7 @@ export const ProductForm: React.FC = () => {
         <TextField
           name="value"
           type="number"
+          label="Preço"
           onChange={(event) => setValue(parseFloat(event.target.value))}
         />
         <TextField

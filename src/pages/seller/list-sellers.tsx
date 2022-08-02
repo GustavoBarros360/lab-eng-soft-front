@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../../api";
 import { Link } from "react-router-dom";
-import { Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 
 import { Hbox, Separator } from "../../styles/box";
 
@@ -14,6 +14,32 @@ export const ListSellers: React.FC = () => {
       setSellers(result.data);
     });
   }, []);
+
+  const handleDeleteSeller = (id: string) => {
+    console.log(id);
+    api
+      .delete(`/delete-seller/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) => console.error(err));
+  };
+
+  const handleUpdateSeller = (seller: any) => {
+    const {
+      id_vendedor,
+      nome_vendedor,
+      salario_bruto,
+      salario_liquido,
+      data_admissao,
+      percentual_comissao,
+    } = seller ?? {};
+    api.put(`/update-seller/${id_vendedor}`, {
+      name: nome_vendedor,
+      salary: salario_liquido,
+      totalSalary: salario_bruto,
+      date: data_admissao,
+      comission: percentual_comissao,
+    });
+  };
   return (
     <Container>
       <Hbox>
@@ -32,6 +58,12 @@ export const ListSellers: React.FC = () => {
         <Hbox.Item>
           <h2>Percentual de Comissao</h2>
         </Hbox.Item>
+        <Hbox.Item>
+          <h2>Editar</h2>
+        </Hbox.Item>
+        <Hbox.Item>
+          <h2>Deletar</h2>
+        </Hbox.Item>
       </Hbox>
       <Separator />
       <Separator />
@@ -43,6 +75,14 @@ export const ListSellers: React.FC = () => {
           <Hbox.Item>{seller.salario_liquido}</Hbox.Item>
           <Hbox.Item>{seller.salario_bruto}</Hbox.Item>
           <Hbox.Item>{seller.percentual_comissao}</Hbox.Item>
+          <Hbox.Item>
+            <Button
+              color="error"
+              onClick={() => handleDeleteSeller(seller.id_vendedor)}
+            >
+              Deletar
+            </Button>
+          </Hbox.Item>
         </Hbox>
       ))}
       <Link to="/">Voltar</Link>
