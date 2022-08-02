@@ -57,7 +57,6 @@ export const SellForm: React.FC = () => {
         id_vendedor: sellerId,
       })
       .then((res) => setWasSellCreated(true));
-    // createSell({ number, date, clientId, sellerId, products });
   };
 
   const handleProductSelect = (event: any) => {
@@ -119,6 +118,7 @@ export const SellForm: React.FC = () => {
       {!wasSellCreated && (
         <Box>
           <Button onClick={handleCreateSell}>Cadastrar</Button>
+          <Link to="/">Voltar</Link>
         </Box>
       )}
       {wasSellCreated && (
