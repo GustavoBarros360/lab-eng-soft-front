@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../../api";
 import { Link } from "react-router-dom";
+import dayjs from "dayjs";
 import { Button, Container } from "@mui/material";
 
 import { Hbox, Separator } from "../../styles/box";
@@ -47,7 +48,7 @@ export const ListSellers: React.FC = () => {
           <h2>Nome</h2>
         </Hbox.Item>
         <Hbox.Item>
-          <h2>Data</h2>
+          <h2>Data admissão</h2>
         </Hbox.Item>
         <Hbox.Item>
           <h2>Salário Líquido</h2>
@@ -59,9 +60,6 @@ export const ListSellers: React.FC = () => {
           <h2>Percentual de Comissao</h2>
         </Hbox.Item>
         <Hbox.Item>
-          <h2>Editar</h2>
-        </Hbox.Item>
-        <Hbox.Item>
           <h2>Deletar</h2>
         </Hbox.Item>
       </Hbox>
@@ -71,7 +69,9 @@ export const ListSellers: React.FC = () => {
       {sellers?.map((seller: any) => (
         <Hbox>
           <Hbox.Item>{seller.nome_vendedor}</Hbox.Item>
-          <Hbox.Item>{seller.data_admissao}</Hbox.Item>
+          <Hbox.Item>
+            {dayjs(seller.data_admissao).format("DD/MM/YYYY")}
+          </Hbox.Item>
           <Hbox.Item>{seller.salario_liquido}</Hbox.Item>
           <Hbox.Item>{seller.salario_bruto}</Hbox.Item>
           <Hbox.Item>{seller.percentual_comissao}</Hbox.Item>
